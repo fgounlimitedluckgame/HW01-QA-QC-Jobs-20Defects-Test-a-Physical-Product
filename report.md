@@ -531,3 +531,16 @@ AI có điểm mạnh là có thể tìm được thông tin và tạo ra templa
 
 # Mandatory Disclosure
 "15 Test case, 20 lỗi phần mềm, sơ đồ tư duy được sinh phiên bản đầu bởi Gemini 3.5 Flash và GPT 5.5; em đã rà soát và chỉnh sửa sơ đồ tư duy vai trò QA/QC, bổ sung các edge cases tự thiết kế cho quạt Mitsubishi và một test case riêng; phần phân tích 10 tin tuyển dụng thực tế và phần quay video test thiết bị thật do em tự thực hiện hoàn toàn. AI Audit Report chi tiết đính kèm ở Phụ lục A. Em cam đoan không dùng AI để sinh bất kỳ artifact nào thuộc danh mục bị cấm."
+
+# Self-Assessment
+*Bảng tự đánh giá điểm số*
+
+| No. | Criteria | Max Grade | Self-Assessed Grade |
+| --- | --- | --- | --- |
+| 1 | Job Market 2026+ | 40 | 40 |
+| 2 | Software Defects 2022-2026 | 20 | 20 |
+| 3 | Physical-product test design | 25 | 15 |
+| AI-1 | [AI-02] AI Audit Report | 8 | 8 |
+| AI-2 | AI Critique + Disclosure | 4 | 4 |
+| AI-3 | [AI-05] Checklist + anti-cheat | 3 | 3 |
+| **Total** |  | **100** | **90** |
