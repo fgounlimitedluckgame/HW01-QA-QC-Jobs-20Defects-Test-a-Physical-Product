@@ -504,9 +504,9 @@ Các lỗi sai:
 | **INCOMPLETE** | 1 | 25% |
 
 ## 3. Kết luận — Khi nào nên / không nên dùng AI?
-*Nên sử dụng AI khi: Phục vụ cho việc tạo khung sườn cho một bài tập hoặc dự án nào đó
+- Nên sử dụng AI khi: Phục vụ cho việc tạo khung sườn cho một bài tập hoặc dự án nào đó
 
-*Không nên sử dụng AI khi: Phát sinh những tình huống đặc biệt như edge case
+- Không nên sử dụng AI khi: Phát sinh những tình huống đặc biệt như edge case
 
 ---
 
