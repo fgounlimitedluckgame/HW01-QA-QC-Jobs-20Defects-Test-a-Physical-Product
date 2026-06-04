@@ -482,3 +482,51 @@ Các lỗi sai:
 5. **Video test case 5 (TC14 - Edge case 02: Kiểm thử khả năng nhận tín hiệu của quạt từ remote qua vật cản):** https://www.youtube.com/shorts/lOxH6pusURw
 
 ---
+
+# Báo cáo tuân thủ AI
+
+## 1. Bảng Audit
+
+| Artifact | (1) Prompt + Công cụ | (2) Output AI | (3) Verdict | (4) Lý do | (5) Bản sửa |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Mindmap vai trò QA/QC** | **Tool:** Gemini Pro<br>**Thời gian:** 17:44 01/06/2026 <br>**Prompt:** Hãy tạo cho tôi mindmap về QA/QC role (hình ảnh, bằng tiếng việt) | ![QA/QC mindmap](./screenshots/QA_QC_Mindmap.jfif) | `INVALID` | 1. Lỗi Hiển thị: Tại nhánh **CÔNG CỤ (QC)** Jira được viết bình thường trong khi tại **CÔNG CỤ (QA)** thì được viết all caps<br> 2. Lỗi nghiệp vụ: `Giám sát quy trình phát triển (SDLC)` nằm tại phần **NHIỆM VỤ CHÍNH** của **QA**<br>- SDLC là một quy trình, framework mà QA vận hành theo, không phải là một nhiệm vụ<br> 3. Lỗi trình bày: `Kiểm thử thủ công (Manual Testing) và Kiểm thử tự động (Automatic testing)` nằm tại phần **NHIỆM VỤ CHÍNH** của **QC**<br>- Đây không phải là một nhiệm vụ mà là một kĩ năng, nhiệm vụ thì đã được trình bày sẵn trước đó là `Thực thi test cases`<br>- Tại phần **KỸ NĂNG** của **QC**, `Kỹ năng kiểm thử` chính là dòng mô tả này, dẫn đến việc trùng lắp mô tả giữa hai phần. Nên bỏ phần này ra khỏi phần **NHIỆM VỤ CHÍNH**<br> 4. Lỗi trình bày: `(Kiểm soát tài liệu, theo dõi quy trình)` nằm tại phần **CÔNG CỤ** của **QA**<br>- Mô tả này chỉ nói chung chung về loại công cụ mà QA sẽ dùng chứ không phải là một tên của một công cụ cụ thể | 1. Sửa "JIRA" thành "Jira".<br> 2. Bỏ dòng liên quan tới SDLC khỏi Nhiệm Vụ Chính.<br> 3. Bỏ dòng này ra khỏi Nhiệm Vụ Chính.<br> 4. Bỏ dòng này ra khỏi phần Công Cụ|
+| **20 lỗi phần mềm được công bố (lấy ngoại trừ lỗi thứ 17)**| **Tool:** Gemini Pro<br>**Thời gian:** 11:29 04/06/2026 <br> **Prompt:** Hãy tìm 20 lỗi phần mềm (software defects) được công bố từ năm 2022 đến 2026 (trong đó có 5 lỗi liên quan đến AI/LLM như hallucination, prompt injection, bias). Đưa mình source link, mô tả, mức độ, hậu quả, giải pháp | https://gemini.google.com/share/cdc6f907bfe0 | `INVALID` | AI đưa ra nhiều nguồn tham khảo nhưng có một số điểm AI nói sai, nguồn không xác thực | Sửa lại những phần AI nói sai và nguồn không xác thực |
+| **20 lỗi phần mềm được công bố (lấy lỗi thứ 11 để thay thế lỗi 17 ở prompt trước)** | **Tool:** Gemini Pro<br>**Thời gian:** 11:51 04/06/2026 <br> **Prompt:** Hãy tìm giúp mình 20 lỗi phần mềm (software defects) được công bố từ năm 2022 đến 2026 (trong đó có 5 lỗi phần mềm liên quan đến AI/LLM như hallucination, prompt injection, bias). Đưa mình source link, mô tả, mức độ, hậu quả, giải pháp | https://gemini.google.com/share/6a327a8b8c84 | `INVALID` | AI nói về sự việc không đúng như mô tả | Sửa lại những gì AI nói không đúng |
+| **Sinh 15 Test case cho quạt điện** | **Tool:** ChatGPT 5.5<br>**Thời gian:** 23:07 03/06/2026 <br>**Prompt:** hãy tạo cho mình 15 test case cho một cái quạt điện (chỉ ghi 15 test case thôi) | ![AI Chat Proof](screenshots/AI_Missing_Testcases.png) | `INCOMPLETE`| AI đưa ra 15 test case nhưng không có 3 edge case được đề cập | Tự thêm edge case |
+
+## 2. Tổng kết Độ chính xác AI
+
+| Chỉ số | Số lượng | Tỉ lệ (%) |
+| :--- | :--- | :--- |
+| **Tổng artifact AI đã audit** | 4 | 100% |
+| **VALID** | 0 | 0% |
+| **INVALID** | 3 | 75% |
+| **INCOMPLETE** | 1 | 25% |
+
+## 3. Kết luận — Khi nào nên / không nên dùng AI?
+*Nên sử dụng AI khi: Phục vụ cho việc tạo khung sườn cho một bài tập hoặc dự án nào đó
+*Không nên sử dụng AI khi: Phát sinh những edge case
+
+---
+
+# AI Critique
+
+*(Viết 1 đoạn văn từ 200 - 300 chữ)*
+Trong bài tập này, em đã sử dụng Gemini và ChatGPT để tìm 20 lỗi phần mềm và tạo test case cho quạt máy ở nhà. Khi làm việc với AI, AI bọc lộ những điểm mạnh và điểm yếu như sau:
+
+**Điểm mạnh của AI**
+AI có điểm mạnh là có thể tìm được thông tin và tạo ra template một cách nhanh chóng, giúp em có thể tạo một khung sườn cho bài tập, sau đó dành thời gian ra tinh chỉnh lại bài làm.
+
+**Điểm yếu của AI**
+1. **Lỗi logic ở Sơ đồ tư duy:** AI hiểu nhầm rằng SDLC là một nhiệm vụ trong khi nó chỉ là một framework cho QA, sử dụng thuật ngữ không chuẩn như "Giao tiếp lỗi", xác định sai việc kiểm thử bằng tay và tự động là một nhiệm vụ trong khi nó chỉ là một kĩ năng 
+2. **Lỗi đưa nội dung sai lệch:** AI được train trên nhiều tập dữ liệu khác nhau nên có thể xảy ra hiện tượng sai lệch thông tin khi AI dùng thuật toán để phát hiện các dạng mẫu trong dữ liệu, hoặc prompt người dùng có thể phức tạp khiến cho AI hiểu nhầm.
+3. **Lỗi đưa link:** AI có thể đưa ra những link không liên quan, link đọc được nhưng yêu cầu phải đăng ký tài khoản trả phí mới đọc được, link bị lỗi 404, link có đường dẫn không đúng, dẫn đến người dùng phải tự tìm kiếm lại để ra được thông tin đúng
+
+**Nguyên nhân thất bại:** AI sau cùng chỉ là một công cụ sinh văn bản, và có thể bị ảo tưởng khi sinh dữ liệu
+
+**Bài học rút ra:** Sau bài tập này, em nhận ra rằng ta chỉ nên dùng AI để phác thảo những gì mình đang chuẩn bị làm, còn việc lên các kịch bản bổ sung hoặc sửa lại những gì AI đưa ra ban đầu thì phải tự tay làm. Ngoài ra, khi AI phát sinh một nội dung nào đó thì phải kiểm chứng thật kĩ trước khi viết vào tài liệu
+
+---
+
+# Mandatory Disclosure
+"15 Test case, 20 lỗi phần mềm, sơ đồ tư duy được sinh phiên bản đầu bởi Gemini 3.5 Flash và GPT 5.5; em đã rà soát và chỉnh sửa sơ đồ tư duy vai trò QA/QC, bổ sung các edge cases tự thiết kế cho quạt Mitsubishi và một test case riêng; phần phân tích 10 tin tuyển dụng thực tế và phần quay video test thiết bị thật do em tự thực hiện hoàn toàn. AI Audit Report chi tiết đính kèm ở Phụ lục A. Em cam đoan không dùng AI để sinh bất kỳ artifact nào thuộc danh mục bị cấm."
