@@ -205,3 +205,21 @@
   - Kỹ năng học hỏi nhanh và chủ động cập nhật các xu hướng công nghệ.
 - **Mức lương:** 950 - 1,400 USD
 - **Phân tích tác động từ AI:** Vị trí này đòi hỏi khả năng ứng dụng AI một cách thiết thực vào quy trình kiểm thử hệ thống quản trị doanh nghiệp (ERP); công cụ AI sẽ hỗ trợ kỹ sư tối ưu hóa việc thiết kế test case, tự động tạo các tập dữ liệu mẫu (mock data) quy mô lớn và đẩy nhanh tốc độ viết kịch bản tự động hóa bằng TypeScript (Playwright/Appium), giúp giải phóng thời gian để tập trung vào việc phân tích logic và dự đoán các kịch bản biên (edge case) phức tạp.
+
+## QA/QC role mindmap và lỗi sai của AI
+
+Ảnh AI tạo ra:
+
+![QA/QC mindmap](./screenshots/QA_QC_Mindmap.jfif)
+
+Các lỗi sai:
+
+1. Lỗi Hiển thị: 
+- Tại nhánh **CÔNG CỤ (QC)** `Jira` được viết bình thường trong khi tại **CÔNG CỤ (QA)** thì được viết all caps
+2. Lỗi nghiệp vụ: `Giám sát quy trình phát triển (SDLC)` nằm tại phần **NHIỆM VỤ CHÍNH** của **QA**
+- SDLC là một quy trình, framework mà QA vận hành theo, không phải là một nhiệm vụ 
+3. Lỗi nghiệp vụ: `Kiểm thử thủ công (Manual Testing) và Kiểm thử tự động (Automatic testing)` nằm tại phần **NHIỆM VỤ CHÍNH** của **QC**
+- Đây không phải là một nhiệm vụ mà là một kĩ năng, nhiệm vụ thì đã được trình bày sẵn trước đó là `Thực thi test cases`
+- Tại phần **KỸ NĂNG** của **QC**, `Kỹ năng kiểm thử` chính là dòng mô tả này, dẫn đến việc trùng lắp mô tả giữa hai phần. Nên bỏ phần này ra khỏi phần **NHIỆM VỤ CHÍNH**
+4. Lỗi trình bày: `(Kiểm soát tài liệu, theo dõi quy trình)` nằm tại phần **CÔNG CỤ** của **QA**
+- Mô tả này chỉ nói chung chung về loại công cụ mà QA sẽ dùng chứ không phải là một tên của một công cụ cụ thể
