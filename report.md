@@ -426,3 +426,59 @@ Các lỗi sai:
 - **Đề xuất sửa:** Đưa thêm nguồn vào để kiểm chứng
 
 ---
+
+# Requirement 3: Test cases for ONE physical product
+
+### Thiết bị lựa chọn: Quạt máy
+* **Thương hiệu:** Mitsubishi
+* **Model:** R12-HRA
+* **Năm sản xuất:** Không nhớ rõ
+* **Số Serial:** Không nhớ rõ
+
+**Ảnh minh họa thiết bị:**
+<div align="center">
+  <img src="screenshots/device_photo.jpg" alt="Ảnh thiết bị và thẻ sinh viên" width="600">
+  <br>
+  <i>Ảnh chụp quạt Mitsubishi và thẻ sinh viên</i>
+</div>
+
+---
+
+### Danh sách 15 Test Case
+
+| Mã TC | Mục tiêu kiểm thử | Dữ liệu đầu vào | Các bước thực hiện | Kết quả kỳ vọng | Kết quả thực tế | Đánh giá |
+| :---: | :--- | :--- | :--- | :--- | :--- | :---: |
+| **TC01** | Bật/tắt quạt | Quạt còn hoạt động được, dây nguồn đã cắm vào | Khi quạt đang tắt, nhấn nút nguồn để bật. Khi quạt đang chạy, nhấn lại nút nguồn để tắt  | Khi quạt tắt, quạt hoạt động. Khi quạt đang chạy, quạt sẽ ngừng | Quạt hoạt động đúng như mô tả| PASS |
+| **TC02** | Bật quạt khi khi không có nguồn điện | Quạt còn hoạt động được, dây nguồn bị rút | Bấm thử nút khi quạt bị ngắt điện | Quạt không bật được | Quạt không bật được như mô tả | PASS |
+| **TC03** | Khả năng quay của quạt | Quạt đang chạy bình thường, chế độ quay chưa bật | Bấm nút chuyển hướng trên động cơ quạt | Quạt được quay | Quạt quay như mô tả | PASS |
+| **TC04** | Kiểm tra việc dừng quay khi tắt chế độ quay quạt | Quạt đang quay | Bấm nút chuyển hướng trên động cơ quạt | Quạt ngừng quay | Quạt ngừng quay | PASS |
+| **TC05** | Kiểm tra điều khiển từ xa bật quạt được trong phạm vi cho phép | Quạt còn hoạt động được, một remote còn pin | Bước xa ra khoảng 5 mét, chĩa remote vào quạt đang tắt | Quạt được bật | Quạt được bật | PASS |
+| **TC06** | Chế độ Rhythm của quạt | Quạt còn hoạt động được | Bật sang chế độ Rhythm | Quạt ban đầu sẽ ở mức một, sau một lúc nó sẽ không tạo ra gió, rồi sẽ chuyển sang mức hai, rồi sau đó mức ba, rồi quay về mức một | Quạt chuyển chế độ đúng như mô tả | PASS |
+| **TC07** | Quạt hoạt động đúng ở mức tốc độ thấp. | Quạt ổn định | Bật quạt và sau đó chuyển quạt ở mức Low | Quạt gió thổi nhẹ và tiếng động cơ nhỏ | Quạt hoạt động đúng như vậy | PASS |
+| **TC08** | Quạt hoạt động đúng ở mức tốc độ trung bình. | Quạt còn hoạt động được | Bật quạt và sau đó chuyển quạt lên mức Medium | Quạt gió thổi vào mạnh hơn so với mức thấp, tiếng động cơ to hơn một chút | Quạt hoạt động đúng như vậy | PASS |
+| **TC09** | Quạt hoạt động đúng ở mức tốc độ cao. | Quạt còn hoạt động được | Bật quạt và sau đó chuyển quạt lên mức High | Quạt gió thổi vào mạnh nhất, tiếng động to nhất| Quạt hoạt động đúng như vậy | PASS |
+| **TC10** | Khả năng thay đổi chiều cao của thân quạt | Quạt còn hoạt động được | Giữ núm văn ở đằng sau thân quạt, và dùng tay thay đổi chiều cao | Chiều cao của thân quạt được thay đổi | Chiều cao thân quạt có thể thay đổi được từ thấp đến cao | PASS |
+| **TC11** | Quạt tự động tắt khi hết thời gian hẹn giờ | Quạt còn hoạt động được | Bấm sleep, chọn một khoảng thời gian nhất định | Sau khoảng thời gian đó, quạt sẽ tự động tắt | Quạt tự động tắt sau khoảng thời gian đó | PASS |
+| **TC12** | Kiểm tra chế độ tự bật của quạt | Quạt còn hoạt động được | Nhấn nút on-timer để chọn thời gian quạt sẽ tự động bật | Quạt sẽ được bật sau khoảng thời gian đó | Quạt tự động bật | PASS |
+| **TC13 (Edge Case 01)** | **Kiểm thử khả năng lọc tín hiệu nhiễu/dội phím của remote** | Quạt đang chạy bình thường, một remote còn pin | Bấm nút thay đổi tốc độ quạt một cách dồn dập (khoảng 5-6 lần/s) | Màn hình của quạt thay đổi tốc độ theo chu trình của tiếng beep, không có hiện tượng bị đơ | Nhấn nút liên tục trên remote không làm cho hiển thị bị đơ hoặc hiển thị sai | PASS |
+| **TC14 (Edge Case 02)** | **Kiểm thử khả năng nhận tín hiệu của quạt từ remote qua vật cản** | Quạt hoạt động bình thường, một remote còn pin | Bấm nút trên remote khi đang có vật cản nào đó | Quạt không nhận được tín hiệu do remote đang sử dụng là remote điều khiển bằng hồng ngoại | Quạt không nhận được tín hiệu | PASS |
+| **TC15 (Edge Case 03)** | **Kiểm thử khả năng quay của quạt khi dùng tay cản động cơ** | Quạt đang quay | Khi quạt quay, dùng tay giữ hộp động cơ lại | Quạt sẽ cố quay bất chấp dùng tay cản động cơ lại | Quạt vẫn quay, nhưng không mượt như khi không dùng tay cản | PASS |
+
+* **Hình ảnh AI không sinh ra được 3 Edge Case:** ![AI Chat Proof](screenshots/AI_Missing_Testcases.png)
+
+**Giải thích tại sao AI không thể tìm ra được những edge case trên:** 
+- TC13: AI giả định rằng con người sẽ sử dụng vật dụng theo cách hợp lý nhất trong khi một số người có thể nghịch remote như vậy
+- TC14: AI có thể không biết dạng remote mà quạt sử dụng, trong khi em có thể biết remote đang sử dụng là remote hồng ngoại
+- TC15: AI giả định rằng quạt máy lúc nào cũng sẽ hoạt động tốt nên đã bỏ qua Edge Case này
+
+---
+
+### Danh sách Video thực thi thực tế
+
+1. **Video test case 1 (TC01 Bật/Tắt quạt):** https://www.youtube.com/shorts/t4foZG5vI6I
+2. **Video test case 2 (TC02 Bật quạt khi không có nguồn điện):** https://www.youtube.com/shorts/TJPrerMPlXw
+3. **Video test case 3 (TC03 Khả năng quay của quạt):** https://www.youtube.com/shorts/SpqudGmy5gk
+4. **Video test case 4 (TC13 - Edge case 01: Khả năng lọc tín hiệu nhiễu/dội phím của remote):** https://www.youtube.com/shorts/jfImSVxft_E
+5. **Video test case 5 (TC14 - Edge case 02: Kiểm thử khả năng nhận tín hiệu của quạt từ remote qua vật cản):** https://www.youtube.com/shorts/lOxH6pusURw
+
+---
