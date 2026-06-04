@@ -223,3 +223,206 @@ Các lỗi sai:
 - Tại phần **KỸ NĂNG** của **QC**, `Kỹ năng kiểm thử` chính là dòng mô tả này, dẫn đến việc trùng lắp mô tả giữa hai phần. Nên bỏ phần này ra khỏi phần **NHIỆM VỤ CHÍNH**
 4. Lỗi trình bày: `(Kiểm soát tài liệu, theo dõi quy trình)` nằm tại phần **CÔNG CỤ** của **QA**
 - Mô tả này chỉ nói chung chung về loại công cụ mà QA sẽ dùng chứ không phải là một tên của một công cụ cụ thể
+
+---
+
+# Requirement 2: 20 Software Defects 2022-2026
+*Danh sách 20 lỗi phần mềm (trong đó có 5 lỗi liên quan đến AI/LLM).* 
+
+## Defect 01: Chatbot Microsoft Copilot (Bing Chat) – Lỗi Prompt Injection (2023)
+- **Nguồn:** [arstechnica.com](https://arstechnica.com/information-technology/2023/02/ai-powered-bing-chat-spills-its-secrets-via-prompt-injection-attack/)
+- **Mô tả:** Người dùng và các chuyên gia bảo mật phát hiện hệ thống dễ bị tấn công phản hồi (Prompt Injection). Bằng cách chèn các câu lệnh ẩn vào các trang web mà chatbot đọc dữ liệu, kẻ tấn công có thể ghi đè lên bộ quy tắc an toàn (System Prompt) ban đầu của mô hình.
+- **Mức độ:** Cao
+- **Hậu quả:** Chatbot bị thao túng để tiết lộ các thông tin nội bộ của hệ thống.
+- **Giải pháp:** Phân tách nghiêm ngặt dữ liệu đầu vào của người dùng (User input) và chỉ thị hệ thống (System instructions); triển khai bộ lọc ngữ nghĩa (semantic filtering) kiểm tra chéo nội dung trước khi trả kết quả.
+- **Nơi AI bị ảo tưởng:** AI cho rằng lỗi Bing Chat được công bố vào năm 2024 nhưng thực chất là năm 2023, và AI đã lấy một nguồn sai để kết luận: [cio.com](https://www.cio.com/article/3624552/8-major-it-disasters-of-2024.html)
+- **Đề xuất sửa:** Sửa lại năm công bố và link được cho ban đầu
+
+## Defect 02: Chatbot Air Canada – Lỗi Ảo tưởng / Sai lệch thông tin (Hallucination) (2024)
+- **Nguồn:** [sgsolutionsgroup.com](https://sgsolutionsgroup.com/real-world-ai-failures/)
+- **Nguồn bổ sung:** [arstechnica.com](https://arstechnica.com/tech-policy/2024/02/air-canada-must-honor-refund-policy-invented-by-airlines-chatbot/)
+- **Nguồn tham khảo chính sách của Air Canada:** [aircanada.com](https://www.aircanada.com/ca/en/aco/home/plan/special-assistance/bereavement-fares.html#/)
+- **Mô tả:** Hệ thống chatbot AI chăm sóc khách hàng của hãng hàng không Air Canada đã tự "bịa" ra một chính sách giảm giá vé cho hành khách có người thân qua đời (bereavement policy) trái ngược với chính sách thực tế của hãng
+- **Mức độ:** Cao
+- **Hậu quả:** Hãng bay bị kiện ra tòa và thẩm phán phán quyết Air Canada phải bồi thường tiền mặt cho khách hàng vì lỗi do AI của hãng gây ra. Uy tín thương hiệu bị ảnh hưởng.
+- **Giải pháp:** Giới hạn phạm vi phản hồi của AI bằng kiến trúc RAG (Retrieval-Augmented Generation) nghiêm ngặt; buộc AI chỉ trích dẫn trực tiếp từ cơ sở dữ liệu (Knowledge Base) chính thức và không cho phép tự suy diễn.
+- **Nơi AI bị ảo tưởng:** AI ban đầu nói chính sách giảm giá vé của người thân "... không hề tồn tại trên thực tế". Thực chất, chính sách này có tồn tại, nhưng điểm khác biệt rằng chính sách này chỉ được dàn xếp qua điện thoại, và nghiên cấm việc hoàn tiền sau chuyến bay 
+- **Đề xuất sửa:** thay đổi mô tả từ "... không hề tồn tại trên thực tế." thành "... trái ngược với chính sách thực tế của hãng"
+
+## Defect 03: Hệ thống đặt đồ ăn tự động của Taco Bell – Lỗi Biên dữ liệu (Edge Case Logic) (2025)
+- **Nguồn:** [testdevlab.com](https://www.testdevlab.com/blog/software-bugs-2025)
+- **Mô tả:** Hệ thống AI nhận diện giọng nói đặt đồ ăn tại các lối đi Drive-thru gặp lỗi logic xử lý âm thanh môi trường và từ ngữ lạ (edge cases).
+- **Mức độ:** Trung bình
+- **Hậu quả:** Một người dùng đã thử đặt 18,000 ly nước như một trò đùa và đã làm sập hệ thống, gây tắc nghẽn chuỗi vận hành và làm khách hàng giận dữ.
+- **Giải pháp:** Thiết lập hạn mức logic tối đa cho mỗi đơn hàng; cải thiện mô hình lọc nhiễu âm thanh môi trường.
+- **Nơi AI bị ảo tưởng:** Ban đầu AI có bảo rằng đây là hệ thống đặt đồ ăn tự động của Taco Bell lẫn McDonalds trong khi nó chỉ là của Taco Bell. AI cho rằng hậu quả bao gồm việc đặt chục phần kem hoặc hàng trăm miếng gà trong khi nó là 18,000 ly nước
+- **Đề xuất sửa:** Sửa tiêu đề thành "Hệ thống đặt đồ ăn tự động của Taco Bell – Lỗi Biên dữ liệu (Edge Case Logic) (2025)", thay đổi thông tin đơn hàng từ chục phần kem và hàng trăm miếng gà thành 18,000 ly nước
+
+## Defect 04: Hệ thống gợi ý thực đơn "Savey Meal Bot" – Lỗi Logic & Thiếu bộ lọc an toàn (Safety Filter Defect) (2023)
+- **Nguồn:** [sgsolutionsgroup.com](https://sgsolutionsgroup.com/real-world-ai-failures/)
+- **Nguồn bổ sung:** [theguardian.com](https://www.theguardian.com/world/2023/aug/10/pak-n-save-savey-meal-bot-ai-app-malfunction-recipes)
+- **Mô tả:** Chatbot AI của chuỗi siêu thị Pak'nSave (New Zealand) được thiết kế để gợi ý món ăn từ nguyên liệu thừa. Tuy nhiên, thuật toán thiếu bộ lọc hóa chất độc hại.
+- **Mức độ:** Cao
+- **Hậu quả:** Khi người dùng nhập ngẫu nhiên một số nguyên liệu từ gia đình, AI đã gợi ý công thức tạo ra khí clo độc hại (gọi là mocktail) và một vài công thức món ăn chết người khác.
+- **Giải pháp:** Tích hợp danh sách đen (Blacklist) các chất cấm nguy hiểm; áp dụng mô hình Guardrails (lớp kiểm định an toàn) để quét đầu ra (output) của AI trước khi hiển thị cho người dùng.
+- **Nơi AI bị ảo tưởng:** AI nói rằng khí clo độc hại là "nước thơm giải khát" trong khi mocktail là định nghĩa về một trong những loại đồ uống không chứa cồn thường được sử dụng trong các lễ hội
+- **Đề xuất sửa:** Sửa "nước thơm giải khát" thành mocktail
+
+## Defect 05: Chatbot của Đại lý Chevrolet – Lỗi Thao túng ngữ cảnh (Context Manipulation) (2024)
+- **Nguồn:** [sgsolutionsgroup.com](https://sgsolutionsgroup.com/real-world-ai-failures/)
+- **Nguồn bổ sung:** [businessinsider.com](https://www.businessinsider.com/car-dealership-chevrolet-chatbot-chatgpt-pranks-chevy-2023-12)
+- **Nguồn bổ sung 2:** [cybernews.com](https://cybernews.com/ai-news/chevrolet-dealership-chatbot-hack/)
+- **Mô tả:** Đại lý xe Chevrolet tại California triển khai chatbot dựa trên ChatGPT. Người dùng nhanh chóng nhận ra họ có thể dẫn dắt ngữ cảnh ép AI đồng ý với các thỏa thuận phi lý.
+- **Mức độ:** Cao
+- **Hậu quả:** Kẻ gian đã lừa chatbot "chốt" bán một chiếc xe Chevrolet Tahoe đời mới với giá chỉ $1 kèm câu hứa "không rút lời". Vụ việc viral trên mạng xã hội làm đại lý phải gỡ bỏ tính năng chatbot
+- **Giải pháp:** Giới hạn vai trò của AI cứng nhắc vào việc cung cấp thông tin, tước bỏ hoàn toàn khả năng tự đưa ra quyết định giao dịch, cam kết thương mại.
+- **Nơi AI bị ảo tưởng:** AI có nêu hậu quả rằng là "... đại lý phải tạm đóng cửa hệ thống." trong khi đại lý chỉ bỏ tính năng Chatbot, theo [cybernews.com](https://cybernews.com/ai-news/chevrolet-dealership-chatbot-hack/)
+- **Đề xuất sửa:** Sửa "... đại lý phải tạm đóng cửa hệ thống." thành "... đại lý phải gỡ bỏ tính năng chatbot."
+
+## Defect 06: CrowdStrike – Lỗi Kiểm thử cấu hình bộ cảm biến gây sập nguồn toàn cầu (2024)
+- **Nguồn:** [origen.co](https://www.origen.co/insights/4-it-disasters-of-2024-and-the-lessons-they-teach-321)
+- **Nguồn bổ sung:** [vnexpress.net](https://vnexpress.net/crowdstrike-he-lo-nguyen-nhan-su-co-man-hinh-xanh-4773927.html)
+- **Mô tả:** Lỗi kiểm thử trong công cụ Content Configuration của CrowdStrike đã bỏ sót một input field (20 so với 21) của tệp cập nhật cấu hình cảm biến (Falcon Sensor), đẩy thẳng xuống các máy tính Windows, gây lỗi Out of Bounds Memory Read.
+- **Mức độ:** Nghiêm trọng
+- **Hậu quả:** Khiến hơn 8.5 triệu máy tính Windows trên toàn cầu rơi vào trạng thái BSOD liên tục. Làm tê liệt hàng loạt sân bay, bệnh viện và ngân hàng trên thế giới, thiệt hại ước tính hơn 5 tỷ USD.
+- **Giải pháp:** Triển khai cơ chế cập nhật cuốn chiếu (Staged Rollouts) thay vì cập nhật đồng loạt; thắt chặt quy trình kiểm thử tự động (automated QA) với các file cấu hình động.
+- **Nơi AI bị ảo tưởng:** AI ban đầu nói là do lỗi mã vùng nhớ trong khi thực tế đó là do hiện tượng Out of Bounds Memory Read. Và hệ thống kiểm thử thực ra không phải là bỏ qua tệp đó, mà nó đã bỏ qua lỗi
+- **Đề xuất sửa:** Sửa mô tả từ "... CrowdStrike đã bỏ sót một tệp cập nhật cấu hình cảm biến (Falcon Sensor) bị lỗi mã vùng nhớ ..." thành "...  CrowdStrike đã bỏ sót một input field (20 so với 21) của tệp cập nhật cấu hình cảm biến (Falcon Sensor), đẩy thẳng xuống các máy tính Windows, gây lỗi Out of Bounds Memory Read ..."
+
+## Defect 07: Toyota – Lỗi cấu hình lưu trữ làm lộ dữ liệu 2 triệu khách hàng (2023)
+- **Nguồn:** [cloudsecurityalliance.org](https://cloudsecurityalliance.org/blog/2025/07/21/reflecting-on-the-2023-toyota-data-breach)
+- **Mô tả:** Lỗi thiết lập sai hệ thống cơ sở dữ liệu đám mây (Cloud misconfiguration) khiến dữ liệu bị chuyển sang chế độ công khai thay vì riêng tư.
+- **Mức độ:** Cao
+- **Hậu quả:** Thông tin vị trí xe và dữ liệu cá nhân của hơn 2,15 triệu khách hàng tại Nhật Bản bị phơi bày trên internet suốt 10 năm (từ 2013 đến 2023) mà không hề hay biết.
+- **Giải pháp:** Sử dụng các công cụ quét an toàn đám mây tự động (CSPM) để liên tục phát hiện lỗi phân quyền sai; áp dụng nguyên tắc đặc quyền tối thiểu.
+- **Nơi AI bị ảo tưởng:** AI đưa link không rõ ràng và đường link không tồn tại (Báo cáo an ninh mạng toàn cầu Toyota công bố tháng 05/2023)
+- **Đề xuất sửa:** Thay thế nguồn trích dẫn
+
+## Defect 08: Lỗ hổng Log4j (Log4Shell) – Tiếp tục ảnh hưởng diện rộng (2022)
+- **Nguồn:** [nvd.nist.gov](https://nvd.nist.gov/vuln/detail/CVE-2021-44228)
+- **Nguồn bổ sung:** [Wikipedia](https://en.wikipedia.org/wiki/Log4Shell)
+- **Mô tả:** Lỗi xử lý chuỗi đầu vào (JNDI Lookup) trong thư viện ghi log Java phổ biến Log4j cho phép tin tặc thực thi mã từ xa mà không cần xác thực. Tuy phát hiện cuối 2021, nhưng đỉnh điểm các bản vá lỗi và mã độc khai thác bùng nổ xuyên suốt năm 2022.
+- **Mức độ:** Nghiêm trọng
+- **Hậu quả:** Hàng triệu máy chủ doanh nghiệp bị tấn công, cài mã độc tống tiền (ransomware) hoặc bị chiếm quyền điều khiển.
+- **Giải pháp:** Cập nhật Log4j lên phiên bản mới nhất.
+- **Nơi AI bị ảo tưởng:** Ở phần giải pháp, AI ban đầu có nói "vô hiệu hóa tính năng `log4j2.formatMsgNoLookups`" trong khi nguyên văn nói rằng việc bật tính năng đó không giúp ích được gì (Wikipedia)
+- **Đề xuất sửa:** Bỏ phần đó
+
+## Defect 09: AT&T – Lỗi cấu hình mạng di động gây mất sóng diện rộng (2024)
+- **Nguồn:** [origen.co](https://www.origen.co/insights/4-it-disasters-of-2024-and-the-lessons-they-teach-321)
+- **Mô tả:** Lỗi trong quá trình áp dụng và thực thi một quy trình vận hành cấu hình sai (incorrect process execution) trong lúc mở rộng mạng lưới.
+- **Mức độ:** Cao
+- **Hậu quả:** Gây mất liên lạc hoàn toàn cho hơn 125 triệu thiết bị tại Mỹ suốt 12 tiếng, chặn đứng hơn 25,000 cuộc gọi khẩn cấp (911).
+- **Giải pháp:** Xây dựng quy trình khôi phục tự động (automated rollback) khi phát hiện sự cố cấu hình
+- **Nơi AI bị ảo tưởng:** AI ban đầu nói giải pháp có bao gồm "thực hiện cập nhật vào khung giờ thấp điểm" trong khi đây không phải là nguyên nhân gốc rễ
+- **Đề xuất sửa:** Bỏ phần "thực hiện cập nhật vào khung giờ thấp điểm" đi
+
+## Defect 10: Cloudflare – Lỗi phần mềm làm sập mạng diện rộng (2025)
+- **Nguồn:** [testdevlab.com](https://www.testdevlab.com/blog/software-bugs-2025)
+- **Nguồn bổ sung:** [vnexpress.net](https://vnexpress.net/loat-dich-vu-internet-toan-cau-sap-vi-cloudflare-gap-su-co-4990331.html)
+- **Mô tả:** Một lỗi cấu hình dữ liệu trong hệ thống nhận diện bot do thay đổi quyền từ Database của Cloudflare
+- **Mức độ:** Cao
+- **Hậu quả:** Đánh sập hàng ngàn website lớn và dịch vụ trực tuyến phụ thuộc vào Cloudflare trên toàn cầu tới hai lần trong năm.
+- **Giải pháp:** Phân tách môi trường chạy thử và thiết lập hệ thống giám sát phát hiện lỗi dị thường (anomaly detection) thời gian thực.
+- **Nơi AI bị ảo tưởng:** AI ban đầu mô tả sự cố này là "Một lỗi logic phần mềm nội bộ (software bug) trong hệ thống định tuyến phân phối lưu lượng của Cloudflare gặp sự cố trong quá trình triển khai mã nguồn mới." trong khi thực tế nó là lỗi cấu hình dữ liệu
+- **Đề xuất sửa:** Sửa lại mô tả của sự cố này thành "Một lỗi cấu hình dữ liệu trong hệ thống nhận diện bot do thay đổi quyền từ Database của Cloudflare"
+
+## Defect 11: Optus Úc – Lỗi cập nhật định tuyến làm sập hệ thống cuộc gọi khẩn cấp (2025)
+- **Nguồn:** [testdevlab.com](https://www.testdevlab.com/blog/software-bugs-2025)
+- **Nguồn bổ sung:** [Wikipedia](https://en.wikipedia.org/wiki/2025_Optus_emergency_calling_outage)
+- **Mô tả:** Lỗi định tuyến xảy ra sau một đợt cập nhật phần mềm định tuyến lõi được gửi từ một trung tâm dữ liệu quốc tế.
+- **Mức độ:** Cao
+- **Hậu quả:** Gây ngắt kết nối mạng Internet và điện thoại của gần 10 triệu người dân Úc, khiến các bệnh viện và hệ thống tàu điện tê liệt, không thể gọi đầu số khẩn cấp 000.
+- **Giải pháp:** Thiết lập các bộ định tuyến dự phòng độc lập vật lý; kiểm tra kỹ khả năng tương thích của các bản cập nhật định tuyến mạng từ bên thứ ba.
+- **Nơi AI bị ảo tưởng:** Theo tựa đề thì AI ghi rằng vụ việc này xảy ra vào năm 2023 nhưng thực tế nó xảy ra vào năm 2025
+- **Đề xuất sửa:** Sửa 2023 thành 2025
+
+## Defect 12: Lỗ hổng MOVEit Transfer – Lỗi SQL Injection (2023)
+- **Nguồn:** [Wikipedia](https://en.wikipedia.org/wiki/2023_MOVEit_data_breach)
+- **Mô tả:** Lỗi bảo mật nghiêm trọng (CVE-2023-34362) trong phần mềm chuyển tệp MOVEit Transfer cho phép kẻ tấn công không cần xác thực truy cập vào cơ sở dữ liệu.
+- **Mức độ:** Cực kì nghiêm trọng
+- **Hậu quả:** Hàng loạt tập đoàn lớn và cơ quan chính phủ bị đánh cắp dữ liệu nhạy cảm, dẫn đến các vụ tống tiền quy mô lớn của nhóm hacker khét tiếng.
+- **Giải pháp:** Rà soát mã nguồn (Code review) để chuẩn hóa câu lệnh SQL (Prepared Statements), cập nhật bản vá bảo mật khẩn cấp từ nhà phát hành Progress Software.
+- **Nơi AI bị ảo tưởng:** AI đưa một nguồn tin không rõ ràng (Cơ quan An ninh mạng và Cơ sở hạ tầng Mỹ (CISA)) và đường link này bị access denied
+- **Đề xuất sửa:** Thay thế bằng một đường link khác
+
+## Defect 13: Barclays – Lỗi Hệ thống Công nghệ thông tin ngày nhận lương (2025)
+- **Nguồn:** [testdevlab.com](https://www.testdevlab.com/blog/software-bugs-2025)
+- **Nguồn bổ sung:** [theguardian.com](https://www.theguardian.com/business/2025/feb/01/barclays-it-glitch-locks-customers-out-of-accounts-for-almost-24-hours)
+- **Mô tả:** Một lỗi glitch hệ thống backend xử lý dữ liệu giao dịch đồng thời (high concurrency load) xảy ra đúng ngày cao điểm thanh toán lương.
+- **Mức độ:** Trung bình
+- **Hậu quả:** Hàng ngàn tài khoản không thể truy cập được, không thể thực hiện giao dịch mua bán hoặc nhận tiền lương đúng hạn, gây khủng hoảng truyền thông cho ngân hàng.
+- **Giải pháp:** Kiểm thử tải (Load testing) và kiểm thử độ căng thẳng (Stress testing) hệ thống định kỳ trước các ngày cao điểm giao dịch tài chính.
+- **Nơi AI bị ảo tưởng:** Ban đầu AI nói rằng hàng ngàn người dùng bị khóa tài khoản trực tuyến, trong khi nguyên văn chỉ nói rằng là không truy cập được tài khoản (unable to access account)
+- **Đề xuất sửa:** Sửa "Hàng ngàn người dùng bị khóa tài khoản trực tuyến" thành "Hàng ngàn tài khoản không thể truy cập được"
+
+## Defect 14: Lỗ hổng XZ Utils – Cài cắm mã độc cửa sau (Backdoor Malicious Code) (2024)
+- **Nguồn:** [Wikipedia](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
+- **Mô tả:** Một lỗi/lỗ hổng được cố tình cài cắm tinh vi (CVE-2024-3094) vào công cụ nén dữ liệu XZ Utils trên hệ điều hành Linux bởi một nhà đóng góp mã nguồn mở (open-source maintainer) giả mạo trong nhiều năm.
+- **Mức độ:** Cực kì nghiêm trọng
+- **Hậu quả:** Nếu không được phát hiện kịp thời bởi một kỹ sư của Microsoft, mã độc này đã có thể cho phép kẻ tấn công vượt qua xác thực SSH để kiểm soát hàng triệu máy chủ Linux trên toàn thế giới.
+- **Giải pháp:** Tăng cường giám sát chuỗi cung ứng phần mềm (Software Supply Chain Security), kiểm duyệt kỹ các dòng mã đóng góp từ cộng đồng.
+- **Nơi AI bị ảo tưởng:** AI ban đầu đưa một nguồn không rõ ràng (Báo cáo phân tích an ninh mạng của Red Hat và OpenSSF năm 2024.)
+- **Đề xuất sửa:** Thay thế một link rõ ràng từ [Wikipedia](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
+
+## Defect 15: Shopify – Sự cố sập hệ thống ngày Cyber Monday (2025)
+- **Nguồn:** [testdevlab.com](https://www.testdevlab.com/blog/software-bugs-2025)
+- **Nguồn bổ sung:** [cnbc.com](https://www.cnbc.com/2025/12/01/shopify-outage-cyber-monday-shopping.html)
+- **Mô tả:** Lỗi xác thực đăng nhập khiến cho Shopify bị sập hệ thống
+- **Mức độ:** Cao
+- **Hậu quả:** Hàng loạt cửa hàng trực tuyến trên nền tảng Shopify bị chậm hoặc không thể thanh toán trong ngày mua sắm lớn nhất năm, gây thiệt hại doanh thu hàng triệu USD cho các nhà bán hàng.
+- **Giải pháp:** Sửa lại flow xác thực đăng nhập
+- **Nơi AI bị ảo tưởng:** AI ban đầu nói lỗi này là do "nghẽn tài nguyên phần mềm (Resource Starvation/Race Condition) khi lưu lượng người mua sắm tăng đột biến vượt quá tính toán của hạ tầng tự động mở rộng (Auto-scaling)." trong khi lỗi thực tế là do xác thực đăng nhập
+- **Đề xuất sửa:** Sửa lại mô tả và giải pháp bị sai
+
+## Defect 16: British Airways – Lỗi phần cứng (2022)
+- **Nguồn:** [vtv.vn](https://vtv.vn/the-gioi/loi-cong-nghe-khien-british-airways-huy-hang-loat-chuyen-bay-20220227123653991.htm)
+- **Nguồn bổ sung:** [computerweekly.com](https://www.computerweekly.com/news/252513937/British-Airways-outage-Airline-cancels-weekend-short-haul-flights-due-to-technical-issues)
+- **Mô tả:** Lỗi phần cứng máy tính tại sân bay Heathrow.
+- **Mức độ:** Cao
+- **Hậu quả:** Hãng hàng không British Airways (BA) của Anh thông báo hủy toàn bộ các chuyến bay chặng ngắn từ sân bay Heathrow ở thủ đô London
+- **Giải pháp:** Reboot phần cứng và server, tạm thời cấm những chuyến bay ngắn, 
+- **Nơi AI bị ảo tưởng:** AI cho rằng đây là lỗi đồng bộ phần mềm hành lý nhưng thực ra đó là do lỗi phần cứng, và AI không cung cấp đường link cho việc này
+- **Đề xuất sửa:** Sửa lại phần mô tả, hậu quả, giải pháp, mô tả lỗi phần mềm
+
+## Defect 17: FAA NOTAM System Failure (01/2023)
+- **Nguồn:** [xurrent.com](https://www.xurrent.com/blog/it-outages#faa-notam-system-failure-january-2023)
+- **Nguồn bổ sung:** [Wikipedia](https://en.wikipedia.org/wiki/2023_FAA_system_outage.)
+- **Mô tả:** Hệ thống Notice to Air Missions (NOTAM) của Cục Hàng không Liên bang Mỹ (FAA) bị sập do một nhà thầu vô tình xóa nhầm file trong cơ sở dữ liệu chính và cả cơ sở dữ liệu dự phòng trong lúc bảo trì.
+- **Mức độ:** Cực kì nghiêm trọng
+- **Hậu quả:** Toàn bộ các chuyến bay nội địa tại Mỹ bị đình chỉ cất cánh lần đầu tiên kể từ sự kiện 11/9, hàng ngàn chuyến bay bị hủy bỏ.
+- **Giải pháp:** Phục hồi hệ thống từ bản sao lưu độc lập; áp dụng quy trình kiểm soát thay đổi (Change Management), quản lý phiên bản và phân quyền chặt chẽ hơn đối với nhân sự vận hành hệ thống.
+- **Nơi AI bị ảo tưởng:** AI ban đầu mô tả sự cố này là do "Lỗi hư hỏng tệp tin cơ sở dữ liệu (Database corruption defect) xảy ra do các kỹ sư vô tình ghi đè dữ liệu sai lên hệ thống thông báo bay NOTAM cũ kỹ." trong khi sự việc do một nhà thầu xoá nhầm file
+- **Đề xuất sửa:** Sửa lại mô tả thành "Hệ thống Notice to Air Missions (NOTAM) của Cục Hàng không Liên bang Mỹ (FAA) bị sập do một nhà thầu vô tình xóa nhầm file trong cơ sở dữ liệu chính và cả cơ sở dữ liệu dự phòng trong lúc bảo trì.", sửa giải pháp
+
+## Defect 18: Lỗ hổng Ivanti Connect Secure – Lỗi Xác thực trái phép (Auth Bypass) (2024)
+- **Nguồn:** [hub.ivanti.com](https://hub.ivanti.com/s/article/CVE-2023-46805-Authentication-Bypass-CVE-2024-21887-Command-Injection-for-Ivanti-Connect-Secure-and-Ivanti-Policy-Secure-Gateways?language=en_US)
+- **Nguồn bổ sung:** [securityweek.com](https://www.securityweek.com/governments-military-targeted-as-widespread-exploitation-of-ivanti-zero-days-begins/)
+- **Mô tả:** Lỗi bảo mật logic (CVE-2024-21887) cho phép kẻ tấn công bỏ qua bước xác thực và thực thi các câu lệnh tùy ý trên thiết bị mạng VPN của Ivanti.
+- **Mức độ:** Cực kì nghiêm trọng
+- **Hậu quả:** Hàng loạt tập đoàn thuộc danh sách Fortune 500 và các cơ quan quân sự bị tin tặc xâm nhập vào mạng lưới nội bộ.
+- **Giải pháp:** Thực hiện vá lỗi theo hướng dẫn khẩn cấp của Ivanti; kiểm toán an ninh mạng (Penetration Testing) độc lập cho mã nguồn.
+- **Nơi AI bị ảo tưởng:** AI đưa ra nguồn tham khảo không rõ ràng (Khuyến cáo bảo mật từ Ivanti và CISA đầu năm 2024.)
+- **Đề xuất sửa:** Thêm link tường minh 
+
+## Defect 19: Hệ thống Hàng không Collins Aerospace (2025)
+- **Nguồn:** [testdevlab.com](https://www.testdevlab.com/blog/software-bugs-2025)
+- **Nguồn bổ sung:** [industrialcyber.co](https://industrialcyber.co/transport/cyberattack-on-collins-aerospace-disrupts-flights-at-heathrow-other-european-airports/)
+- **Nguồn bổ sung 2:** [Wikipedia](https://en.wikipedia.org/wiki/Collins_Aerospace_cyberattack)
+- **Mô tả:** Collins Aerospace bị tấn công mạng (cyberattack), cụ thể là vụ tấn công này bao gồm Ransomware
+- **Mức độ:** Nghiêm trọng
+- **Hậu quả:** Làm gián đoạn tạm thời mạng lưới không lưu tại một số vùng ở Châu Âu, khiến nhiều chuyến bay bị hoãn hoặc phải thay đổi lộ trình bay.
+- **Giải pháp:** Đưa ra bản vá lỗi phần mềm, reset thông tin xác thực trên diện rộng, đưa ra hệ thống thay thế cho các sân bay bị ảnh hưởng
+- **Nơi AI bị ảo tưởng:** AI cho rằng vụ việc gây ra từ lỗi tràn bộ đệm hoặc lỗi bộ nhớ, trong khi nó đến từ việc tấn công mạng
+- **Đề xuất sửa:** Sửa mô tả, giải pháp
+
+## Defect 20: Twitter (X) – Lỗi rò rỉ API dữ liệu người dùng (2022)
+- **Nguồn:** [malwarebytes.com](https://www.malwarebytes.com/blog/news/2022/08/twitter-confirmed-july-2022-data-breach-affecting-5-4m-users)
+- **Mô tả:** Lỗi kiểm tra điều kiện trong một bản cập nhật mã nguồn API vào năm 2021 (nhưng hậu quả bùng nổ công bố năm 2022) cho phép nhập số điện thoại/email để suy ra ID tài khoản Twitter tương ứng mà không cần xác thực nâng cao
+- **Mức độ:** Nghiêm trọng
+- **Hậu quả:** Dữ liệu riêng tư của hơn 5.4 triệu tài khoản Twitter bị khai thác và rao bán công khai trên các diễn đàn hacker ngầm.
+- **Giải pháp:** Giới hạn tần suất gọi API (Rate limiting); thực thi nghiêm ngặt các bước kiểm tra quyền sở hữu dữ liệu (Object-level authorization check).
+- **Nơi AI bị ảo tưởng:** AI đưa ra nguồn trích dẫn không rõ ràng (Báo cáo điều tra dữ liệu từ Ủy ban Bảo vệ Dữ liệu Ireland (DPC) năm 2022.)
+- **Đề xuất sửa:** Đưa thêm nguồn vào để kiểm chứng
+
+---
